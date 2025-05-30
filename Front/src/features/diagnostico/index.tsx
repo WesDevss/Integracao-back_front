@@ -16,7 +16,7 @@ export const DiagnosticoSteps = () => {
   const [req, setReq] = useState<resPropsWithFile>()
 
   if (currentStep === 1) {
-    return <DiagnosticoStep1 req={req} setReq={setReq} />;
+    return <DiagnosticoStep1 setReq={setReq} />;
   } else {
     return <DiagnosticoStep2 req={req} setReq={setReq} />;
   }

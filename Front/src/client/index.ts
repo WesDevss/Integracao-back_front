@@ -1,16 +1,22 @@
-import axios from 'axios'
+// Front/src/client/index.ts
+// import axios from 'axios' // Remover importação original do axios
 import { ReqTypes } from './reqTypes'
 
-const httpClient = axios.create({
-  baseURL: 'http://localhost:8000',
-  // Atenção para enviar headers corretos para FormData, axios cuida disso automaticamente
-  // mas caso queira forçar, usar 'Content-Type': 'multipart/form-data' NÃO é recomendado pois
-  // o axios adiciona o boundary sozinho
-})
+// Importar a instância de api configurada
+import api from '../services/api';
 
+// Remover a criação da instância httpClient hardcoded com localhost:8000
+// const httpClient = axios.create({
+//   baseURL: 'http://localhost:8000',
+//   // Atenção para enviar headers corretos para FormData, axios cuida disso automaticamente
+//   // mas caso queira forçar, usar 'Content-Type': 'multipart/form-data' NÃO é recomendado pois
+//   // o axios adiciona o boundary sozinho
+// })
+
+// Atualizar o objeto req para usar a instância api importada
 const req = {
   post: (path: string, body: any, options?: any) =>
-    httpClient.post(path, body, options).then((response: any) => response.data)
+    api.post(path, body, options).then((response: any) => response.data) // Usar 'api.post' em vez de 'httpClient.post'
 }
 
 const client: ReqTypes = {

@@ -7,11 +7,10 @@ import { useToast } from "@/hooks/use-toast";
 import { AxiosError } from "axios";
 
 interface DiagnosticoStep1Props {
-  req: any;
   setReq: (arg: any) => void;
 }
 
-export const DiagnosticoStep1: FC<PropsWithChildren<DiagnosticoStep1Props>> = ({ req, setReq }) => {
+export const DiagnosticoStep1: FC<PropsWithChildren<DiagnosticoStep1Props>> = ({ setReq }) => {
   const [sexo, setSexo] = useState<{ label: string; value: string } | undefined>(undefined);
   const [imagem, setImagem] = useState<File[]>([]);
 
